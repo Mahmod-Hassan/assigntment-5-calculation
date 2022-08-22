@@ -1,12 +1,18 @@
+function getHowManyPlayerSelected() {
+    const ol = document.getElementById('player-list');
+    return ol;
+}
+
 document.getElementById("card-container").addEventListener('click', function (event) {
     const button = event.target;
     if (button.tagName === 'BUTTON') {
-        const ol = document.getElementById('player-list');
         const playerName = event.target.parentElement.firstElementChild.innerText;
         const li = document.createElement('li');
         li.innerText = playerName;
         li.style.fontSize = '25px';
-        if (ol.childNodes.length > 4) {
+        const ol = getHowManyPlayerSelected();
+        const playerNumber = ol.childNodes.length;
+        if (playerNumber > 4) {
             alert('you can not added more player');
             return;
         }
@@ -15,15 +21,46 @@ document.getElementById("card-container").addEventListener('click', function (ev
             button.setAttribute('disabled', true);
             button.style.backgroundColor = '#B3B3B3';
         }
-
-
     }
 });
 
+function getInputFieldById(id) {
+    const inputValue = parseInt(document.getElementById(id).value);
+    return inputValue;
+}
+
+function calculateTotalExpenses() {
+    const ol = getHowManyPlayerSelected();
+    const playerNumber = ol.childNodes.length;
+    const perPlayerBudget = getInputFieldById('per-player-budget');
+    const totalExpenses = perPlayerBudget * playerNumber;
+    return totalExpenses;
+}
+
+function setInnerTextByIdAndValue(id, value) {
+    if (isNaN(value)) {
+        alert('please insert number')
+        return;
+    }
+    document.getElementById(id).innerText = value;
+}
+
+
+// calculate button
 document.getElementById('calculate').addEventListener('click', function () {
-    const perPlayerBudget = parseInt(document.getElementById('per-player-budget').value);
-    const ol = document.getElementById('player-list');
-    const totalExpenses = perPlayerBudget * ol.childNodes.length;
-    const playerExpenses = document.getElementById('player-expenses');
-    playerExpenses.innerText = totalExpenses;
+    const totalExpenses = calculateTotalExpenses();
+    setInnerTextByIdAndValue('player-expenses', totalExpenses);
+});
+
+function calculateTotalBudget() {
+    const totalExpenses = calculateTotalExpenses();
+    const managerBudget = getInputFieldById('manager-budget');
+    const coachBudget = getInputFieldById('coach-budget');
+    const totalBudget = managerBudget + coachBudget + totalExpenses;
+    return totalBudget;
+}
+// calculate total button
+document.getElementById('calculate-total').addEventListener('click', function () {
+    const totalBudget = calculateTotalBudget();
+    setInnerTextByIdAndValue('total-budget', totalBudget);
 })
