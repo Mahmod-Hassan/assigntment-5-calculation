@@ -6,8 +6,7 @@ document.getElementById("card-container").addEventListener('click', function (ev
         const li = document.createElement('li');
         li.innerText = playerName;
         li.style.fontSize = '25px';
-        console.log(ol.childElements);
-        if (ol.childNodes.length > 5) {
+        if (ol.childNodes.length > 4) {
             alert('you can not added more player');
             return;
         }
@@ -20,3 +19,11 @@ document.getElementById("card-container").addEventListener('click', function (ev
 
     }
 });
+
+document.getElementById('calculate').addEventListener('click', function () {
+    const perPlayerBudget = parseInt(document.getElementById('per-player-budget').value);
+    const ol = document.getElementById('player-list');
+    const totalExpenses = perPlayerBudget * ol.childNodes.length;
+    const playerExpenses = document.getElementById('player-expenses');
+    playerExpenses.innerText = totalExpenses;
+})
