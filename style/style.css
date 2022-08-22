@@ -96,7 +96,41 @@ button {
     color: white;
 }
 
+#side-bar {
+    display: grid;
+    grid-template-rows: 380px auto;
+    gap: 20px;
+}
 
+#side-bar div {
+    background-color: #000000;
+    padding: 10px;
+}
+
+#side-bar div ol {
+    padding-left: 50px;
+}
+
+#player-budget {
+    text-align: center;
+}
+
+#player-budget input {
+    background-color: #000000;
+    border: 1px solid white;
+    padding: 5px 0px;
+    color: white;
+}
+
+#player-budget div {
+    display: flex;
+    justify-content: space-between;
+}
+
+#player-budget p {
+    font-size: 20px;
+    margin: 10px;
+}
 
 
 
