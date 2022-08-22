@@ -134,6 +134,9 @@ button {
     margin: 10px;
 }
 
+#player-budget span {
+    color: #AFAFAF;
+}
 
 /* this is calculate button */
 #calculate {

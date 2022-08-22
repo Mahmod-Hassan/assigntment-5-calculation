@@ -37,30 +37,36 @@ function calculateTotalExpenses() {
     return totalExpenses;
 }
 
-function setInnerTextByIdAndValue(id, value) {
-    if (isNaN(value)) {
+function setInnerTextByIdAndValue(id, number) {
+    if (isNaN(number)) {
         alert('please insert number')
         return;
     }
-    document.getElementById(id).innerText = value;
+    document.getElementById(id).innerText = number;
+    document.getElementById(id).style.color = '#FF5E19';
 }
 
 
 // calculate button
 document.getElementById('calculate').addEventListener('click', function () {
     const totalExpenses = calculateTotalExpenses();
+    if (totalExpenses <= 0) {
+        alert('Please select at least one player');
+        return;
+    }
     setInnerTextByIdAndValue('player-expenses', totalExpenses);
 });
 
-function calculateTotalBudget() {
+
+document.getElementById('calculate-total').addEventListener('click', function () {
+    // const totalBudget = calculateTotalBudget();
     const totalExpenses = calculateTotalExpenses();
+    if (totalExpenses <= 0) {
+        alert('please select at least one player')
+        return;
+    }
     const managerBudget = getInputFieldById('manager-budget');
     const coachBudget = getInputFieldById('coach-budget');
     const totalBudget = managerBudget + coachBudget + totalExpenses;
-    return totalBudget;
-}
-// calculate total button
-document.getElementById('calculate-total').addEventListener('click', function () {
-    const totalBudget = calculateTotalBudget();
     setInnerTextByIdAndValue('total-budget', totalBudget);
 })

@@ -81,7 +81,7 @@
         <!-- side bar start from here -->
         <section id="side-bar">
             <div id="selected-player">
-                <h1>Selected -V</h1>
+                <h1>Selected Player</h1>
                 <hr>
                 <ol id="player-list"></ol>
             </div>
@@ -93,7 +93,11 @@
                     <input id="per-player-budget" type="text">
                 </div>
                 <button id="calculate">Calculate</button>
-                <p>Player Expenses $<span id="player-expenses"></span></p>
+                <div>
+                    <p>Player Expenses</p>
+                    <p>$<span id="player-expenses"></span></p>
+                </div>
+
                 <div>
                     <span>Manager</span>
                     <input id="manager-budget" type="text">
@@ -104,7 +108,7 @@
                 </div>
                 <button id="calculate-total">Calculate Total</button>
                 <div>
-                    <p>Manager</p>
+                    <p>Total</p>
                     <p>$<span id="total-budget"></span></p>
                 </div>
             </div>
