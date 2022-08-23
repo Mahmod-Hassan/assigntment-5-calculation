@@ -4,19 +4,25 @@ function getHowManyPlayerSelected() {
 }
 
 document.getElementById("card-container").addEventListener('click', function (event) {
-    const button = event.target;
-    if (button.tagName === 'BUTTON') {
-        const playerName = event.target.parentElement.firstElementChild.innerText;
+
+    if (event.target.tagName === 'BUTTON') {
+        // event.target is nothing but a button
+        // that's why assign this value into a variable
+        // and the variabel name is button
+        const button = event.target;
+        const playerName = button.parentElement.firstElementChild.innerText;
+        // create li element
         const li = document.createElement('li');
         li.innerText = playerName;
         li.style.fontSize = '25px';
         const ol = getHowManyPlayerSelected();
         const playerNumber = ol.childNodes.length;
-        if (playerNumber > 4) {
-            alert('you can not added more player');
+        if (playerNumber >= 5) {
+            alert("your can't added more than 5 players");
             return;
         }
         else {
+            // here i set <li> into <ol> tag
             ol.appendChild(li);
             button.setAttribute('disabled', true);
             button.style.backgroundColor = '#B3B3B3';
