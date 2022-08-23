@@ -1,12 +1,14 @@
+/* google fonts added */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700;800&family=Risque&display=swap');
 
+/* all elements selector */
 * {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
+/* this is body */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #0d0d0d;
@@ -63,6 +65,9 @@ main {
     color: white;
 }
 
+/* card container means player section container
+or player card container
+*/
 #card-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -111,30 +116,30 @@ button {
     padding-left: 50px;
 }
 
-#player-budget h1,
+#budget-container h1,
 #selected-player h1 {
     text-align: center;
     margin-bottom: 20px;
 }
 
-#player-budget input {
+#budget-container input {
     background-color: #000000;
     border: 1px solid white;
     color: white;
     padding: 5px 10px;
 }
 
-#player-budget div {
+#budget-container div {
     display: flex;
     justify-content: space-between;
 }
 
-#player-budget p {
+#budget-container p {
     font-size: 20px;
     margin: 10px;
 }
 
-#player-budget span {
+span {
     color: #AFAFAF;
 }
 

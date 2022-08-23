@@ -16,7 +16,7 @@ document.getElementById("card-container").addEventListener('click', function (ev
         li.innerText = playerName;
         li.style.fontSize = '25px';
         const ol = getHowManyPlayerSelected();
-        const playerNumber = ol.childNodes.length;
+        const playerNumber = ol.childElementCount;
         if (playerNumber >= 5) {
             alert("your can't added more than 5 players");
             return;
